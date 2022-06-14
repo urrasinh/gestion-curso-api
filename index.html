@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -105,8 +105,7 @@
       </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script src="index.js"></script>
-  </body>
+    </body>
 </html>
 
 <style>
@@ -172,8 +171,8 @@
     axios.post(url, data).then(() => getData());
   }
 
-  function eliminarCurso(i, nombre) {
-    axios.delete(url + "/" + nombre).then(() => {
+  function eliminarCurso(i, id) {
+    axios.delete(`${url}/${id}`).then(() => {
       alert("Curso " + nombre + " eliminado");
       getData();
     });
@@ -194,7 +193,7 @@
 
   function editarCurso(id) {
     axios
-      .put(url, {
+      .put(`${url}/${id}`, {
         nombre: nombre.value,
         nivelTecnico: nivelTecnico.value,
         fechaInicio: fechaInicio.value,
